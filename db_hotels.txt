@@ -1,0 +1,225 @@
+1.Seleziona tutti gli ospiti che sono stati identificati con la carta di identità
+
+SELECT `name`, `lastname`, `date_of_birth` FROM `ospiti` WHERE `document_type` = 'CI'
+
+Elizabeth
+Romaguera
+2005-03-12 10:37:05
+
+Madie
+Sanford
+1964-04-02 17:51:08
+
+Lysanne
+Buckridge
+1960-01-25 05:59:53
+
+Jessie
+Kozey
+1982-06-05 06:00:13
+
+Shemar
+Keeling
+1957-06-14 11:43:50
+
+Edwardo
+Pacocha
+1959-03-29 01:01:36
+
+Jacquelyn
+Ankunding
+1992-11-19 06:15:10
+
+
+Willie
+Borer
+1926-12-17 17:48:37
+
+
+Kamron
+Murphy
+2002-12-17 15:29:31
+
+
+Charley
+Abernathy
+1930-04-24 00:12:40
+
+
+Tyrel
+Murphy
+1977-03-02 10:51:34
+
+
+Gillian
+Reichel
+2000-09-01 03:03:09
+
+
+Briana
+Cartwright
+1926-01-21 14:47:47
+
+
+Lamar
+Koch
+1983-08-29 16:27:17
+
+Lafayette
+Brakus
+1955-09-02 02:12:26
+
+2.Seleziona tutti gli ospiti che sono nati dopo il 1988
+
+SELECT `name`,`lastname`, `date_of_birth` FROM `ospiti` WHERE `date_of_birth` > '1988'
+
+Elizabeth
+Romaguera
+2005-03-12 10:37:05
+
+Jacquelyn
+Ankunding
+1992-11-19 06:15:10
+
+
+Tristian
+Koss
+2003-01-27 03:01:13
+
+
+Kamron
+Murphy
+2002-12-17 15:29:31
+
+
+Helene
+Hansen
+2000-02-24 12:21:08
+
+
+Dion
+Leannon
+1993-09-22 15:41:21
+
+
+Emilie
+Grant
+2010-12-18 14:22:44
+
+Laurence
+Green
+2008-12-25 13:42:07
+
+
+Dandre
+Kautzer
+1988-05-22 08:37:49
+
+
+Nikita
+Donnelly
+2001-12-26 02:54:30
+
+Gillian
+Reichel
+2000-09-01 03:03:09
+
+3.Seleziona tutti gli ospiti che hanno più di 20 anni(almomentodell’esecuzionedellaquery)
+
+SELECT `name`,`lastname`, `date_of_birth` FROM `ospiti` WHERE `date_of_birth` < '2001-05-05'
+
+Madie
+Sanford
+1964-04-02 17:51:08
+
+
+Orion
+Hilpert
+1975-06-30 18:04:07
+
+
+Lysanne
+Buckridge
+1960-01-25 05:59:53
+
+Jessie
+Kozey
+1982-06-05 06:00:13
+
+Shemar
+Keeling
+1957-06-14 11:43:50
+
+Edwardo
+Pacocha
+1959-03-29 01:01:36
+
+Delilah
+Renner
+1922-11-05 18:13:56
+
+
+Jacquelyn
+Ankunding
+1992-11-19 06:15:10
+
+
+Willie
+Borer
+1926-12-17 17:48:37
+
+Helene
+Hansen
+2000-02-24 12:21:08
+
+
+Charley
+Abernathy
+1930-04-24 00:12:40
+
+Dion
+Leannon
+1993-09-22 15:41:21
+
+4.Seleziona tutti gli ospiti il cui nome inizia con la D
+
+SELECT `name`, `lastname` FROM `ospiti` WHERE `name` LIKE('d%');
+
+Delilah
+Renner
+
+Dion
+Leannon
+
+
+Deron
+Hand
+
+
+Dandre
+Kautzer
+
+5.Calcola il totale incassato degli ordini accepted
+
+SELECT SUM(price) FROM `pagamenti`
+
+6.Qual è il prezzo massimo pagato?
+
+SELECT `price` FROM `pagamenti` ORDER BY `price` DESC
+
+ Showing rows 0 - 24 (30 total, Query took 0.0004 seconds.) [price: 993.00... - 117.00...]
+
+7.Seleziona gli ospiti riconosciuti con patente e nati nel 1975
+
+SELECT `name`, `lastname` FROM `ospiti` WHERE `date_of_birth` = '1975' AND `document_type` = 'patente'
+
+8.Quanti paganti sono anche ospiti?
+
+SELECT COUNT(ospite_id) FROM `paganti`
+
+COUNT(ospite_id) = 14
+
+
+9.Quanti posti letto ha l’hotel in totale?
+
+SELECT SUM(`beds`) FROM `stanze`

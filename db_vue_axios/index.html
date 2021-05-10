@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>db_rooms</title>
+  </head>
+  <body>
+        <h1>STANZE HOTEL </h1>
+      <div class="container" id="root">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>ROOM</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="stanza in stanze">
+            <td>{{stanza.id}}</td>
+            <td @click="get_specific(stanza.id)">{{stanza.room_number}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <hr>
+      <br>
+        <div v-if="stanza" v-for="stanz in stanza">
+          <div class="">
+            <b>HAI SELEZIONATO</b> Stanza ID : {{ stanz.id }}
+          </div>
+          <div class="">
+            Numero:  {{ stanz.room_number }}
+          </div>
+          <div class="">
+            Piano:  {{ stanz.floor }}
+          </div>
+          <div class="">
+            Numero posti letto: {{ stanz.beds }}
+          </div>
+          <div class="">
+            Inserzione creata il : {{ stanz.created_at }}
+          </div>
+          <div class="">
+            Inserzione aggiunta il : {{ stanz.updated_at }}
+          </div>
+        </div>
+      </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="./dist/js/main.js" charset="utf-8"></script>
+  </body>
+</html>
